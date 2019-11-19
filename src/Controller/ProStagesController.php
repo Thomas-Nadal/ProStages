@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProStagesController extends AbstractController
 {
@@ -43,7 +44,7 @@ class ProStagesController extends AbstractController
     public function afficherStage($id)
     {
         return $this->render('pro_stages/listeStages.html.twig', [
-            'controller_name' => 'ProStagesController',
+            'controller_name' => 'ProStagesController', 'idStage'=> $id
         ]);
     }
 }
