@@ -1,20 +1,61 @@
-{% extends 'base.html.twig' %}
+{# /template/index.html.twig #}
 
-{% block title %}Hello ProStagesController!{% endblock %}
+<!DOCTYPE html>
+<html>
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Bienvenue sur la page d'accueil de Prostages</h1>
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}Page d'accueil ProStages{% endblock %}</title>
+		{% block stylesheets %}{% endblock %}
+	</head>
 	
-    <!--This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/users/info/tnelizalde/DUT_INFO/DUT_S3/PHP_Symfony/ProStages/src/Controller/ProStagesController.php'|file_link(0) }}">src/Controller/ProStagesController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/users/info/tnelizalde/DUT_INFO/DUT_S3/PHP_Symfony/ProStages/templates/pro_stages/index.html.twig'|file_link(0) }}">templates/pro_stages/index.html.twig</a></code></li>
-    </ul> -->
-</div>
-{% endblock %}
+	<body>
+		{% block header %}
+			<h1>Bienvenue sur la page d'accueil de Prostages !</h1>
+		{% endblock %}
+		
+		{% block menu %}
+			<p>
+				Liste stages : Tous
+			</p>
+			<p>
+				Filter les stages par : <a href="/formations" >Formations</a> / <a href="/entreprises" >Entreprises</a>
+			</p>
+		{% endblock %}
+		
+		{% block contenu %}
+			<table border="1" align="center">
+			   <tr>
+				  <th>Titre du stage</th>
+				  <th>Entreprise</th>
+			   </tr>
+			   <tr>
+				  <td>~~~~~~~~~~~~~~<br/>~~~~~~~~~~~~~~</td>
+				  <td>~~~~~~~~~~~~~~</td>
+			   </tr>
+			   <tr>
+				  <td>~~~~~~~~~~~~~~<br/>~~~~~~~~~~~~~~</td>
+				  <td>~~~~~~~~~~~~~~</td>
+			   </tr>
+			   <tr>
+				  <td>~~~~~~~~~~~~~~<br/>~~~~~~~~~~~~~~</td>
+				  <td>~~~~~~~~~~~~~~</td>
+			   </tr>
+			   <tr>
+				  <td>~~~~~~~~~~~~~~<br/>~~~~~~~~~~~~~~</td>
+				  <td>~~~~~~~~~~~~~~</td>
+			   </tr>
+			</table>
+		{% endblock %}
+		
+		{% block footer %}
+		{% endblock %}
+		
+		{% block javascript %}
+		{% endblock %}
+		
+	</body>
+</html>
+
+
+
