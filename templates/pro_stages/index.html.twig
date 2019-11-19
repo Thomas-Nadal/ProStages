@@ -1,62 +1,51 @@
-{# /template/index.html.twig #}
+{# /template/pro_stages/index.html.twig #}
+{% extends 'base.html.twig' %}
 
-<!DOCTYPE html>
-<html>
+{% block title %}
+	Page d'accueil ProStages
+{% endblock %}
 
-	<head>
-		<meta charset="UTF-8">
-		<title>{% block title %}Page d'accueil ProStages{% endblock %}</title>
-		{% block stylesheets %}{% endblock %}
-	</head>
-	
-	<body>
-		{% block header %}
-			<h1  align="center">ProStages</h1>
-			<h2  align="center">Bienvenue sur la page d'accueil de Prostages !</h2>
-		{% endblock %}
-		
-		{% block menu %}
-			<p>
-				Liste stages : Tous
-			</p>
-			<p>
-				Filter les stages par : <a href="/formations" >Formations</a> / <a href="/entreprises" >Entreprises</a>
-			</p>
-		{% endblock %}
-		
-		{% block contenu %}
-			<table border="1" align="center">
-			   <tr>
-				  <th>Titre du stage</th>
-				  <th>Entreprise</th>
-			   </tr>
-			   <tr>
-				  <td>~~~~~~~~~~~~~~<br/>~~~~~~~~~~~~~~</td>
-				  <td>~~~~~~~~~~~~~~</td>
-			   </tr>
-			   <tr>
-				  <td>~~~~~~~~~~~~~~<br/>~~~~~~~~~~~~~~</td>
-				  <td>~~~~~~~~~~~~~~</td>
-			   </tr>
-			   <tr>
-				  <td>~~~~~~~~~~~~~~<br/>~~~~~~~~~~~~~~</td>
-				  <td>~~~~~~~~~~~~~~</td>
-			   </tr>
-			   <tr>
-				  <td>~~~~~~~~~~~~~~<br/>~~~~~~~~~~~~~~</td>
-				  <td>~~~~~~~~~~~~~~</td>
-			   </tr>
-			</table>
-		{% endblock %}
-		
-		{% block footer %}
-		{% endblock %}
-		
-		{% block javascript %}
-		{% endblock %}
-		
-	</body>
-</html>
+{% block stylesheets %}
+{% endblock %}
 
+{% block header %}
+	<h1  align="center">ProStages</h1>
+	<h2  align="center">Bienvenue sur la page d'accueil de Prostages !</h2>
+{% endblock %}
+		
+{% block menu %}
+	<p>
+		Liste stages : Tous
+	</p>
+	<p>
+		Filter les stages par : <a href="/formations" >Formations</a> / <a href="/entreprises" >Entreprises</a>
+	</p>
+{% endblock %}
 
+{% block contenu %}
+	<table border="1" align="center">
+		<tr>
+			<th>Titre du stage</th>
+			<th>Entreprise</th>
+		</tr>
+		<tr align="center">
+			<td><a href=''>Refonte interface Web</a></td>
+			<td>Total</td>
+		</tr>
+		<tr align="center">
+			<td><a href=''>Refonte interface mobile</a></td>
+			<td>Leclerc</td>
+		</tr>
+		<tr align="center">
+			<td><a href=''>Object connecté</a></td>
+			<td>CapGemini</td>
+		</tr>
+	</table>
+{% endblock %}
+		
+{% block footer %}
+{% endblock %}
+		
+{% block javascript %}
+{% endblock %}
 

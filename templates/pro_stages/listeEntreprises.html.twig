@@ -1,42 +1,36 @@
-{# /template/listeEntreprises.html.twig #}
+{# /template/pro_stages/listeEntreprises.html.twig #}
+{% extends 'base.html.twig' %}
 
-<!DOCTYPE html>
-<html>
+{% block title %}
+	ProStages - Entreprises
+{% endblock %}
 
-	<head>
-		<meta charset="UTF-8">
-		<title>{% block title %}ProStages - Entreprises{% endblock %}</title>
-		{% block stylesheets %}{% endblock %}
-	</head>
-	
-	<body>
-		{% block header %}
-			<h1  align="center">ProStages</h1>
-			<h2  align="center">Filter les stages par entreprise</h2>
-		{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block header %}
+	<h1  align="center">ProStages</h1>
+	<h2  align="center">Filter les stages par entreprise</h2>
+{% endblock %}
 		
-		{% block menu %}
-		{% endblock %}
+{% block menu %}
+{% endblock %}
 		
-		{% block contenu %}
-			<p>
-				Liste des entreprises :
-				<ul>
-					<li><a href="/">Total</li>
-					<li><a href="/">CapGemini</li>
-					<li><a href="/">Leclerc</li>
-				</ul>
-			</p>
-		{% endblock %}
+{% block contenu %}
+	<p>
+		Liste des entreprises :
+		<ul>
+			<li><a href="/">Total</li>
+			<li><a href="/">CapGemini</li>
+			<li><a href="/">Leclerc</li>
+		</ul>
+	</p>
+{% endblock %}
 		
-		{% block footer %}
-		{% endblock %}
+{% block footer %}
+{% endblock %}
 		
-		{% block javascript %}
-		{% endblock %}
-		
-	</body>
-</html>
+{% block javascript %}
+{% endblock %}
 
 
 

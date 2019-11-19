@@ -1,42 +1,35 @@
-{# /template/listeFormations.html.twig #}
+{# /template/pro_stages/listeFormations.html.twig #}
+{% extends 'base.html.twig' %}
 
-<!DOCTYPE html>
-<html>
+{% block title %}
+	ProStages - Formations
+{% endblock %}
 
-	<head>
-		<meta charset="UTF-8">
-		<title>{% block title %}ProStages - Formations{% endblock %}</title>
-		{% block stylesheets %}{% endblock %}
-	</head>
-	
-	<body>
-		{% block header %}
-			<h1  align="center">ProStages</h1>
-			<h2  align="center">Filter les stages par formation</h2>
-		{% endblock %}
-		
-		{% block menu %}
-		{% endblock %}
-		
-		{% block contenu %}
-			<p>
-				Liste des formations :
-				<ul>
-					<li><a href="/">DUT INFO</li>
-					<li><a href="/">Licence Info</li>
-					<li><a href="/">Master Info</li>
-				</ul>
-			</p>
-		{% endblock %}
-		
-		{% block footer %}
-		{% endblock %}
-		
-		{% block javascript %}
-		{% endblock %}
-		
-	</body>
-</html>
+{% block stylesheets %}{% endblock %}
 
+{% block header %}
+	<h1  align="center">ProStages</h1>
+	<h2  align="center">Filter les stages par formation</h2>
+{% endblock %}
+		
+{% block menu %}
+{% endblock %}
+		
+{% block contenu %}
+	<p>
+		Liste des formations :
+		<ul>
+			<li><a href="/">DUT INFO</li>
+			<li><a href="/">Licence Info</li>
+			<li><a href="/">Master Info</li>
+		</ul>
+	</p>
+{% endblock %}
+		
+{% block footer %}
+{% endblock %}
+		
+{% block javascript %}
+{% endblock %}
 
 

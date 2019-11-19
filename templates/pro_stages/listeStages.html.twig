@@ -1,20 +1,47 @@
+{# /template/pro_stages/listeStages.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Prostage Liste Stages{% endblock %}
-
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{ idStage }}</h1>
-	
-    <!--This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/users/info/tnelizalde/DUT_INFO/DUT_S3/PHP_Symfony/ProStages/src/Controller/ProStagesController.php'|file_link(0) }}">src/Controller/ProStagesController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/users/info/tnelizalde/DUT_INFO/DUT_S3/PHP_Symfony/ProStages/templates/pro_stages/index.html.twig'|file_link(0) }}">templates/pro_stages/index.html.twig</a></code></li>
-    </ul> -->
-</div>
+{% block title %}
+	ProStages - Stage
 {% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block header %}
+	<h1  align="center">ProStages</h1>
+{% endblock %}
+		
+{% block menu %}
+{% endblock %}
+		
+{% block contenu %}
+	Détails du stage :
+	<table border="1" align="center">
+		<tr>
+			<th>Titre</th>
+			<th>Nom</th>
+			<th>Activité</th>
+			<th>Adresse</th>
+			<th>Missions</th>
+			<th>Formations</th>
+			<th>e-mail</th>			
+		</tr>
+		<tr align="center">
+			<td>bla bla</td>
+			<td>bla</td>
+			<td>bla blabla blabla bla</td>
+			<td>bla blabla bla</td>
+			<td>bla bla<br/>bla bla</td>
+			<td>bla bla</td>
+			<td><a href="" >bla bla</a></td>
+			
+		</tr>
+	</table>
+{% endblock %}
+		
+{% block footer %}
+{% endblock %}
+		
+{% block javascript %}
+{% endblock %}
+
