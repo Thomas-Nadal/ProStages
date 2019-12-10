@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,12 +19,12 @@ class Entreprise
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=150)
      */
     private $activite;
 
@@ -32,9 +34,19 @@ class Entreprise
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=150)
      */
     private $adresseWeb;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="entreprise")
+     */
+    private $stages;
+
+    public function __construct()
+    {
+        $this->stages = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -58,7 +70,7 @@ class Entreprise
         return $this->activite;
     }
 
-    public function setActivite(?string $activite): self
+    public function setActivite(string $activite): self
     {
         $this->activite = $activite;
 
@@ -85,6 +97,37 @@ class Entreprise
     public function setAdresseWeb(string $adresseWeb): self
     {
         $this->adresseWeb = $adresseWeb;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Stage[]
+     */
+    public function getStages(): Collection
+    {
+        return $this->stages;
+    }
+
+    public function addStage(Stage $stage): self
+    {
+        if (!$this->stages->contains($stage)) {
+            $this->stages[] = $stage;
+            $stage->setEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStage(Stage $stage): self
+    {
+        if ($this->stages->contains($stage)) {
+            $this->stages->removeElement($stage);
+            // set the owning side to null (unless already changed)
+            if ($stage->getEntreprise() === $this) {
+                $stage->setEntreprise(null);
+            }
+        }
 
         return $this;
     }
