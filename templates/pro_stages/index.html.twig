@@ -7,66 +7,77 @@
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	
-	
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-	
 {% endblock %}
 
 {% block header %}
-	<h1  align="center">ProStages</h1>
-	<h2  align="center">Bienvenue sur la page d'accueil de Prostages !</h2>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+					<h1  align="center">ProStages</h1>
+					<h2  align="center">Bienvenu sur ProStages</h2>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 		
 {% block menu %}
-	<p>
-		Liste stages : Tous
-	</p>
-	<p>
-		Filter les stages par : <a href="/formations" >Formations</a> / <a href="/entreprises" >Entreprises</a>
-	</p>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12  col-sm-12 col-xs-12">
+				<!--BARRE DE NAVIGATION-->
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				  <a class="navbar-brand" href="/">Trier les stages par : </a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+					  <li class="nav-item">
+						<a class="nav-link" href="/formations">Formation</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="/entreprises">Entreprise</a>
+					</ul>
+				  </div>
+				</nav>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 
 {% block contenu %}
-	<table border="1" align="center">
-		<tr>
-			<th>Titre du stage</th>
-			<th>Entreprise</th>
-		</tr>
-		<tr align="center">
-			<td><a href=''>Refonte interface Web</a></td>
-			<td>Total</td>
-		</tr>
-		<tr align="center">
-			<td><a href=''>Refonte interface mobile</a></td>
-			<td>Leclerc</td>
-		</tr>
-		<tr align="center">
-			<td><a href=''>Object connecté</a></td>
-			<td>CapGemini</td>
-		</tr>
-	</table>
+	<div class="container-fluid"  style="padding-top: 50px">
+		<div class="row">
+			<div class="col-10 offset-1">
+				<table class="table table-striped">
+				  <thead>
+					<tr>
+					  <th scope="col"></th>
+					  <th scope="col" style="text-align:center">Titre du stage</th>
+					  <th scope="col" style="text-align:center">Entreprise</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <th scope="row">1</th>
+					  <td style="text-align:center">Mark</td>
+					  <td style="text-align:center">Otto</td>
+					</tr>
+					<tr>
+					  <th scope="row">2</th>
+					  <td style="text-align:center">MarkMarkMarkMarkMarkMark</td>
+					  <td style="text-align:center">OttoMarkMarkMarkMark</td>
+					</tr>
+					<tr>
+					  <th scope="row">3</th>
+					  <td style="text-align:center">MarkMarkMark</td>
+					  <td style="text-align:center">OttoMarkMark Mark</td>
+					</tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 		
 {% block footer %}
