@@ -14,31 +14,61 @@
 {% endblock %}
 		
 {% block menu %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12  col-sm-12 col-xs-12">
+				<!--BARRE DE NAVIGATION-->
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				  <a class="navbar-brand" href="/">Trier les stages par : </a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+					  <li class="nav-item">
+						<a class="nav-link" href="/formations">Formation</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="/entreprises">Entreprise</a>
+					</ul>
+				  </div>
+				</nav>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 		
 {% block contenu %}
-	Détails du stage "Titre du stage" :
-	<table border="1" align="center">
-		<tr>
-			<th>Titre</th>
-			<th>Nom</th>
-			<th>Activité</th>
-			<th>Adresse</th>
-			<th>Missions</th>
-			<th>Formations</th>
-			<th>e-mail</th>			
-		</tr>
-		<tr align="center">
-			<td>bla bla</td>
-			<td>bla</td>
-			<td>bla blabla blabla bla</td>
-			<td>bla blabla bla</td>
-			<td>bla bla<br/>bla bla</td>
-			<td>bla bla</td>
-			<td><a href="" >bla bla</a></td>
-			
-		</tr>
-	</table>
+	<div class="container-fluid" style="padding-top: 50px">
+		<div class="row">
+			<div class="col-12">
+				<table class="table table-striped">
+				  <thead>
+						<tr>
+						  <th scope="col">Titre</th>
+						  <th scope="col">Nom</th>
+						  <th scope="col">Activité</th>
+						  <th scope="col">Adresse</th>
+						  <th scope="col">Missions</th>
+						  <th scope="col">Formations</th>
+						  <th scope="col">e-mail</th>
+						</tr>
+				  </thead>
+				  <tbody>
+					<tr>
+					  <td>Voilà le Stage n°{{idStage}}</td>
+					  <td>{{idStage}}</td>
+					  <td>{{idStage}}</td>
+					  <td>{{idStage}}</td>
+					  <td>{{idStage}}</td>
+					  <td>{{idStage}}</td>
+					  <td>{{idStage}}</td>
+					</tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 		
 {% block footer %}

@@ -46,32 +46,37 @@
 {% endblock %}
 
 {% block contenu %}
-	<div class="container-fluid"  style="padding-top: 50px">
+	
+	<a href="/stages/{{path:1}}">Titre 1</a>
+	
+	
+
+	<div class="container-fluid" style="padding-top: 50px">
 		<div class="row">
-			<div class="col-10 offset-1">
+			<div class="col-12">
 				<table class="table table-striped">
 				  <thead>
-					<tr>
-					  <th scope="col"></th>
-					  <th scope="col" style="text-align:center">Titre du stage</th>
-					  <th scope="col" style="text-align:center">Entreprise</th>
-					</tr>
+						<tr>
+						  <th scope="col"></th>
+						  <th scope="col">Titre du stage</th>
+						  <th scope="col">Entreprise</th>
+						</tr>
 				  </thead>
 				  <tbody>
 					<tr>
-					  <th scope="row">1</th>
-					  <td style="text-align:center">Mark</td>
-					  <td style="text-align:center">Otto</td>
+						<th scope="row">1</th>
+						<td>Titre 1</td>
+						<td>Entreprise 1</td>
 					</tr>
 					<tr>
 					  <th scope="row">2</th>
-					  <td style="text-align:center">MarkMarkMarkMarkMarkMark</td>
-					  <td style="text-align:center">OttoMarkMarkMarkMark</td>
+					  <td>MarkMarkMarkMarkMarkMark</td>
+					  <td>OttoMarkMarkMarkMark</td>
 					</tr>
 					<tr>
 					  <th scope="row">3</th>
-					  <td style="text-align:center">MarkMarkMark</td>
-					  <td style="text-align:center">OttoMarkMark Mark</td>
+					  <td>MarkMarkMark</td>
+					  <td>OttoMarkMark Mark</td>
 					</tr>
 				  </tbody>
 				</table>
