@@ -2,7 +2,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	ProStages - Entreprises
+	ProSatges / {{ name }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -10,7 +10,7 @@
 
 {% block header %}
 	<h1  align="center">ProStages</h1>
-	<h2  align="center">Filter les stages par entreprise</h2>
+	<h2  align="center">Choisir les stages en fonction de l'entreprise</h2>
 {% endblock %}
 		
 {% block menu %}
@@ -19,54 +19,20 @@
 {% block contenu %}
 	<div class="container">
 		<div class="row">      <!--style="padding-top: 20px; padding-bottom: 20px"-->
-			<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
-				<div class="card" style="width: 15rem;">
-				  <div class="card-header" align="center">
-					<a href="/">TOTAL</a>
-				  </div>
-				  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Activité</li>
-					<li class="list-group-item">Adresse</li>
-					<li class="list-group-item"><a href="">AdresseWeb.com</a></li>
-				  </ul>
+			{% for entrepriseCourante in entreprises %}
+				<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
+					<div class="card" style="width: 15rem;">
+					  <div class="card-header" align="center">
+						<a href="/">{{ entrepriseCourante.nom }}</a>
+					  </div>
+					  <ul class="list-group list-group-flush">
+						<li class="list-group-item">{{ entrepriseCourante.activite }}</li>
+						<li class="list-group-item">{{ entrepriseCourante.adresse }}</li>
+						<li class="list-group-item"><a href="">{{ entrepriseCourante.adresseWeb }}</a></li>
+					  </ul>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
-				<div class="card" style="width: 15rem;">
-				  <div class="card-header" align="center">
-					<a href="/">CapGemini</a>
-				  </div>
-				  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Activité</li>
-					<li class="list-group-item">Adresse</li>
-					<li class="list-group-item"><a href="">AdresseWeb.com</a></li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
-				<div class="card" style="width: 15rem;">
-				  <div class="card-header" align="center">
-					<a href="/">Startup</a>
-				  </div>
-				  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Activité</li>
-					<li class="list-group-item">Adresse</li>
-					<li class="list-group-item"><a href="">AdresseWeb.com</a></li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
-				<div class="card" style="width: 15rem;">
-				  <div class="card-header" align="center">
-					<a href="/">Startup2</a>
-				  </div>
-				  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Activité</li>
-					<li class="list-group-item">Adresse</li>
-					<li class="list-group-item"><a href="">AdresseWeb.com</a></li>
-				  </ul>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}

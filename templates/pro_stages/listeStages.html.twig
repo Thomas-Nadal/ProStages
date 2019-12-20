@@ -2,7 +2,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	ProStages - Stage
+	ProSatges / {{ name }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -32,15 +32,16 @@
 						</tr>
 				  </thead>
 				  <tbody>
-					<tr>
-					  <td>Voilà le Stage n°{{idStage}}</td>
-					  <td>entreprise {{idStage}}</td>
-					  <td>activité n°{{idStage}}</td>
-					  <td>Rue {{idStage}}</td>
-					  <td>Mission n°{{idStage}}</td>
-					  <td>Formations n°{{idStage}}</td>
-					  <td>{{idStage}}@gmail.com</td>
-					</tr>
+					
+						<tr>
+						  <td>Voilà le Stage n°{{idStage}}</td>
+						  <td>entreprise {{idStage}}</td>
+						  <td>activité n°{{idStage}}</td>
+						  <td>Rue {{idStage}}</td>
+						  <td>Mission n°{{idStage}}</td>
+						  <td>Formations n°{{idStage}}</td>
+						  <td>{{idStage}}@gmail.com</td>
+						</tr>
 				  </tbody>
 				</table>
 			</div>

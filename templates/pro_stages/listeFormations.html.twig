@@ -2,7 +2,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	ProStages - Formations
+	ProSatges / {{ name }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -19,36 +19,20 @@
 {% block contenu %}
 	<div class="container">
 		<div class="row">      <!--style="padding-top: 20px; padding-bottom: 20px"-->
-			<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
-				<div class="card" style="width: 15rem;">
-				  <div class="card-header" align="center">
-					<a href="/">DU TIC</a>
-				  </div>
-				  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Diplôme Universitaire des Technologies de l'information et de la Communication</li>
-				  </ul>
+			{% for formationCourante in formations %}
+				<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
+					<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
+						<div class="card" style="width: 15rem;">
+						  <div class="card-header" align="center">
+							<a href="/">{{ formationCourante.nomCourt }}</a>
+						  </div>
+						  <ul class="list-group list-group-flush">
+							<li class="list-group-item">{{ formationCourante.nomLong }}</li>
+						  </ul>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
-				<div class="card" style="width: 15rem;">
-				  <div class="card-header" align="center">
-					<a href="/">DUT INFO</a>
-				  </div>
-				  <ul class="list-group list-group-flush">
-					<li class="list-group-item">DUT informatique</li>
-				  </ul>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12" align="center" style="padding-top: 20px; padding-bottom: 20px">
-				<div class="card" style="width: 15rem;">
-				  <div class="card-header" align="center">
-					<a href="/">LP Multimédia</a>
-				  </div>
-				  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Licence Professionnelle Multimédia</li>
-				  </ul>
-				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}

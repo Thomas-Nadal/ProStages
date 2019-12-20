@@ -7,6 +7,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Entity\Stage;
+use App\Entity\Entreprise;
+use App\Entity\Formation;
+use App\Repository\StageRepository;
+use App\Repository\EntrepriseRepository;
+use App\Repository\FormationRepository;
 
 class ProStagesController extends AbstractController
 {
@@ -23,30 +28,36 @@ class ProStagesController extends AbstractController
     /**
      * @Route("/entreprises", name="ProStages_Entreprises")
      */
-    public function afficherListeEntreprises()
+    public function entreprises(EntrepriseRepository $repEntreprise)
     {
-        return $this->render('pro_stages/listeEntreprises.html.twig', [
-            'controller_name' => 'ProStagesController',
-        ]);
+        // Récupérer les entreprises enregistrées en BD
+        $entreprises = $repEntreprise->findAll();
+		
+        // Envoyer les entreprises récupérées à la vue chargée de les afficher
+        return $this->render('pro_stages/listeEntreprises.html.twig',['name' => 'Entreprises','entreprises' => $entreprises]);
     }
 
     /**
      * @Route("/formations", name="ProStages_Formations")
      */
-    public function afficherListeFormations()
+    public function formations(FormationRepository $repFormation)
     {
-        return $this->render('pro_stages/listeFormations.html.twig', [
-            'controller_name' => 'ProStagesController',
-        ]);
+        // Récupérer les formations enregistrées en BD
+        $formations = $repFormation->findAll();
+		
+        // Envoyer les entreprises récupérées à la vue chargée de les afficher
+        return $this->render('pro_stages/listeFormations.html.twig',['name' => 'Formations','formations' => $formations]);
     }
 
     /**
-     * @Route("/stages/{id}", name="ProStages_Stages")
+     * @Route("pro_stages/", name="ProStages_Stages")
      */
-    public function afficherStage($id)
+    public function stages(StageRepository $repStage)
     {
-        return $this->render('pro_stages/listeStages.html.twig', [
-            'controller_name' => 'ProStagesController', 'idStage'=> $id
-        ]);
+        // Récupérer les stages enregistrées en BD
+        $stages = $repStage->findAll();
+		
+        // Envoyer les entreprises récupérées à la vue chargée de les afficher
+        return $this->render('pro_stages/index.html.twig',['stages' => $stages]);
     }
 }
