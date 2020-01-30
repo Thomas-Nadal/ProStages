@@ -18,10 +18,14 @@ class ProStagesController extends AbstractController
     /**
      * @Route("/", name="ProStages_Accueil")
      */
-    public function index()
+    public function index(StageRepository $repStage)
     {
+        // Récupérer les stages enregistrées en BD
+        $stages = $repStage->findAll();
+		
         return $this->render('pro_stages/index.html.twig', [
             'controller_name' => 'ProStagesController',
+			'stages' => $stages,
         ]);
     }
 
@@ -60,4 +64,31 @@ class ProStagesController extends AbstractController
         // Envoyer les entreprises récupérées à la vue chargée de les afficher
         return $this->render('pro_stages/index.html.twig',['stages' => $stages]);
     }
+	
+	
+	/**
+     * @Route("pro_stages/{nomEntreprise}", name="ProStages_Stages_Par_Nom_Entreprise")
+     */
+    public function stagesParNomEntreprise(StageRepository $repositoryStage, $nomEntreprise)
+    {
+        // Récupérer les stages enregistrées en BD avec le nom de l'entreprise "nomEntreprise"
+        $stages = $repositoryStage->findByNomEntreprise($nomEntreprise);
+		
+        // Envoyer les entreprises récupérées à la vue chargée de les afficher
+        return $this->render('pro_stages/index.html.twig',['stages' => $stages]);
+    }
+	
+	
+	/**
+     * @Route("pro_stages/{nomFormation}", name="ProStages_Stages_Par_Nom_Formation")
+     */
+    public function stagesParNomFormation(StageRepository $repositoryStage, $nomFormation)
+    {
+        // Récupérer les stages enregistrées en BD avec le nom de l'entreprise "nomFormation"
+        $stages = $repositoryStage->findByNomFormation($nomFormation);
+		
+        // Envoyer les entreprises récupérées à la vue chargée de les afficher
+        return $this->render('pro_stages/index.html.twig',['stages' => $stages]);
+    }
+	
 }

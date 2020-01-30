@@ -68,38 +68,23 @@
 
 {% block contenu %}
 	<div class="container-fluid" style="padding-top: 50px">
-		<div class="row">
-			<div class="col-12">
-				<table class="table table-striped">
-				  <thead>
-						<tr>
-						  <th scope="col"></th>
-						  <th scope="col">Titre du stage</th>
-						  <th scope="col">Entreprise</th>
-						</tr>
-				  </thead>
-				  <tbody>
-				  
-					<tr>
-						<th scope="row">1</th>
-						<td><a href="/stages/1">Titre 1 Titre 1 Titre 1 Titre 1</a></td>
-						<td>Entreprise 1</td>
-					</tr>
-					<tr>
-					  <th scope="row">2</th>
-					  <td><a href="/stages/2">Mark Mark Mark Mark</a></td>
-					  <td>Otto</td>
-					</tr>
-					<tr>
-					  <th scope="row">3</th>
-					  <td><a href="/stages/3">Mark Mark Mark</a></td>
-					  <td>Otto</td>
-					</tr>
-				  </tbody>
-				</table>
+			<div class="row">
+				<div class="col-12">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h4>Stages actuellement proposés</h4></div>
+						<ul class="list-group">
+							{% for stageCourant in stages %}
+								<li class="list-group-item">
+									<a href="{{ path('ProStages_Stages', {'id':stageCourant.id}) }}">
+										{{stageCourant.titre}} - {{stageCourant.entreprise.nom}}
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
 {% endblock %}
 		
 {% block footer %}
