@@ -53,8 +53,6 @@ class StageRepository extends ServiceEntityRepository
 		//Définition de la valeur du paramètre injecté dans la requete
 		$requete->setParameter('nomFormation',$nomFormation);
 		
-		var_dump($requete->execute());exit;
-		
 		//retourner les resultats
 		return $requete->execute();
 	}

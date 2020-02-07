@@ -1,0 +1,65 @@
+{# /template/pro_stages/listeEntreprises.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	ProSatges / Ajouter une entreprise
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block header %}
+	<h1  align="center">ProStages</h1>
+	{% if action == "ajouter" %}
+		<h2  align="center">Ajouter une nouvelle entreprise</h2>
+	{% else %}
+		<h2  align="center">Modifier une entreprise</h2>
+	{% endif %}
+{% endblock %}
+		
+{% block menu %}
+{% endblock %}
+		
+{% block contenu %}
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="card" style="padding:50px">
+			<div  style="margin-bottom:50px">
+				{% if action == "ajouter" %}
+					<h2>Ajouter une nouvelle entreprise</h2>
+				{% else %}
+					<h2>Modifier une entreprise</h2>
+				{% endif %}
+			</div>
+			<div>
+				{{ form_start(vueFormulaireEntreprise) }}
+				
+					{{ form_row(vueFormulaireEntreprise.nom, {'attr':{'placeholder' : "Nom de l'entreprise"}}) }}
+					
+					{{ form_row(vueFormulaireEntreprise.activite, {'attr':{'placeholder' : "Activité l'entreprise"}}) }}
+					
+					{{ form_row(vueFormulaireEntreprise.adresse, {'attr':{'placeholder' : "Adresse physique de l'entreprise"}}) }}
+					
+					{{ form_row(vueFormulaireEntreprise.adresseWeb, {'attr':{'placeholder' : "Adresse Web de l'entreprise"}}) }}
+					
+					<button type="submit" class="btn btn-dark" style="margin-top:25px">
+						{% if action == "ajouter" %}
+							Ajouter une nouvelle entreprise
+						{% else %}
+							Modifier une entreprise
+						{% endif %}					
+					</button>
+					
+				{{ form_end(vueFormulaireEntreprise) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+		
+{% block footer %}
+{% endblock %}
+		
+{% block javascript %}
+{% endblock %}
+
+
+

@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\Stage;
 use App\Entity\Entreprise;
@@ -90,5 +92,69 @@ class ProStagesController extends AbstractController
         // Envoyer les entreprises récupérées à la vue chargée de les afficher
         return $this->render('pro_stages/index.html.twig',['stages' => $stages]);
     }
+	
+	/**
+     * @Route("ajouter_entreprise", name="ProStages_AjouterEntreprise")
+     */
+	public function ajouterEntreprise(Request $request, ObjectManager $manager){
+		//Création de l'objet entreprise
+		$entreprise = new Entreprise();
+		
+		//Création du formulaire de création d'entreprise
+		$formulaireCreationEntreprise = $this -> createFormBuilder($entreprise)
+											  -> add('nom')
+											  -> add('activite')
+											  -> add('adresse')
+											  -> add('adresseWeb')
+											  -> getForm();
+		
+		$formulaireCreationEntreprise->handleRequest($request);
+		
+		if($formulaireCreationEntreprise->isSubmitted()){
+			//injecter les données en BD
+			$manager->persist($entreprise);
+			$manager->flush();
+			
+			//rediriger utilisateur vers la page entreprises
+			return $this->redirectToRoute("ProStages_Entreprises");
+		}
+		
+		//envoi du formulaire à la vue
+		return $this->render('pro_stages/ajouterModifierEntreprise.html.twig',['vueFormulaireEntreprise' => $formulaireCreationEntreprise->createView(), 'action' => 'ajouter']);
+	}
+	
+	/**
+     * @Route("modifier_entreprise/{id}", name="ProStages_ModifierEntreprise")
+     */
+	public function modifierEntreprise(Request $request, ObjectManager $manager, Entreprise $entreprise){
+		
+		//Création du formulaire de modification d'entreprise
+		$formulaireModificationEntreprise = $this -> createFormBuilder($entreprise)
+											  -> add('nom')
+											  -> add('activite')
+											  -> add('adresse')
+											  -> add('adresseWeb')
+											  -> getForm();
+		
+		$formulaireModificationEntreprise->handleRequest($request);
+		
+		if($formulaireModificationEntreprise->isSubmitted()){
+			//injecter les données en BD
+			$manager->persist($entreprise);
+			$manager->flush();
+			
+			//rediriger utilisateur vers la page entreprises
+			return $this->redirectToRoute("ProStages_Entreprises");
+		}
+		
+		//envoi du formulaire à la vue
+		return $this->render('pro_stages/ajouterModifierEntreprise.html.twig',['vueFormulaireEntreprise' => $formulaireModificationEntreprise->createView(), 'action' => 'modifier']);
+	}
+	
+	
+
+	
+	
+	
 	
 }
