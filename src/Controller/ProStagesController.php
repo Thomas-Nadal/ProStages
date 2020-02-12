@@ -110,7 +110,7 @@ class ProStagesController extends AbstractController
 		
 		$formulaireCreationEntreprise->handleRequest($request);
 		
-		if($formulaireCreationEntreprise->isSubmitted()){
+		if($formulaireCreationEntreprise->isSubmitted() && $formulaireCreationEntreprise->isValid()){
 			//injecter les données en BD
 			$manager->persist($entreprise);
 			$manager->flush();
