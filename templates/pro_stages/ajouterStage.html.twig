@@ -1,0 +1,57 @@
+{# /template/pro_stages/listeEntreprises.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	ProSatges / Ajouter une entreprise
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block header %}
+	<h1  align="center">ProStages</h1>
+	<h2  align="center">Ajouter un Stage</h2>
+{% endblock %}
+		
+{% block menu %}
+{% endblock %}
+		
+{% block contenu %}
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="card" style="padding:50px">
+			<div  style="margin-bottom:50px">
+				<h2>Ajouter un stage</h2>
+			</div>
+			<div>
+				<strong>
+					{{ form_start(vueFormulaireStage, {'attr':{'novalidate' : "novalidate"}}) }}
+					
+						{{ form_row(vueFormulaireStage.titre) }}
+						
+						{{ form_row(vueFormulaireStage.description) }}
+						
+						{{ form_row(vueFormulaireStage.contact, {'label' : "Email"}) }}
+						
+						{{ form_row(vueFormulaireStage.entreprise) }}
+				</strong>	
+						{{ form_row(vueFormulaireStage.formations, {'label' : "Le stage est proposé aux formations suivantes :"}) }}
+				
+						<button type="submit" class="btn btn-dark" style="margin-top:25px">
+							Valider				
+						</button>
+						
+					{{ form_end(vueFormulaireStage) }}
+				
+			</div>
+		</div>
+	</div>
+{% endblock %}
+		
+{% block footer %}
+{% endblock %}
+		
+{% block javascript %}
+{% endblock %}
+
+
+

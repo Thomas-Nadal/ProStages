@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StageRepository")
@@ -20,16 +21,20 @@ class Stage
 
     /**
      * @ORM\Column(type="string", length=150)
+	 * @Assert\NotBlank
      */
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=150)
+	 * @Assert\NotBlank
+	 * @Assert\Email(message = "Ce n'est pas un email valide !")
      */
     private $contact;
 
@@ -39,7 +44,8 @@ class Stage
     private $formations;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="stages")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="stages", cascade={"persist"})
+	 * @Assert\Valid
      */
     private $entreprise;
 
