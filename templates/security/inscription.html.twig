@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription sur Prostages{% endblock %}
+
+{% block contenu %}
+    {{ form_start(vueFormulaire) }}
+					
+		{{ form_row(vueFormulaire.username, {'attr':{'placeholder':"Votre identifiant"}}) }}
+						
+		{{ form_row(vueFormulaire.password, {'attr':{'placeholder':"Votre mot de passe"}}) }}
+
+		<button type="submit" class="btn btn-dark" style="margin-top:25px">
+			S'inscrire				
+		</button>
+						
+	{{ form_end(vueFormulaire) }}
+{% endblock %}
